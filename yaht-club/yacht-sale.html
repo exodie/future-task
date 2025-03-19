@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="yacht-sale-title">Продажа яхт - Морской Бриз</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/yacht-sale.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Шапка сайта с языковым переключателем -->
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="index.html" class="logo">Морской <span>Бриз</span></a>
+
+          <nav class="nav">
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" data-lang-key="main"
+                  >Главная</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="yacht-sale.html"
+                  class="nav-link"
+                  data-lang-key="yacht-sale"
+                  >Продажа яхт</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="yacht-rent.html"
+                  class="nav-link"
+                  data-lang-key="yacht-rent"
+                  >Аренда яхт</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" data-lang-key="about"
+                  >О нас</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="contacts.html"
+                  class="nav-link"
+                  data-lang-key="contacts"
+                  >Контакты</a
+                >
+              </li>
+            </ul>
+
+            <div class="header-controls">
+              <div class="language-switcher">
+                <select id="language-select">
+                  <option value="ru">RU</option>
+                  <option value="en">EN</option>
+                </select>
+              </div>
+
+              <div class="currency-switcher">
+                <select id="currency-select">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="RUB">RUB</option>
+                </select>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+      <div class="container">
+        <h1 class="page-title" data-lang-key="yacht-sale-title">Продажа яхт</h1>
+
+        <!-- Поиск (перемещен под заголовок) -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="yacht-search"
+              class="search-input"
+              placeholder="Поиск яхт..."
+              data-lang-key="search-placeholder"
+              autocomplete="off"
+            />
+            <button
+              id="clear-search"
+              class="clear-search"
+              title="Очистить"
+              data-lang-key="clear-search-title"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="yacht-sale-container">
+          <!-- Фильтры -->
+          <div class="filter-container">
+            <button class="filter-toggle">
+              <i class="fas fa-filter"></i>
+              <span data-lang-key="filters">Фильтры</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+
+            <div class="filters">
+              <div class="filter-group">
+                <h3 data-lang-key="price">
+                  Цена <span class="currency-label">USD</span>
+                </h3>
+                <div class="price-range">
+                  <input
+                    type="range"
+                    id="price-min"
+                    min="0"
+                    max="10000000"
+                    step="100000"
+                    value="0"
+                  />
+                  <div class="price-inputs">
+                    <div class="price-input">
+                      <label for="min-price-input" data-lang-key="price-from"
+                        >От:</label
+                      >
+                      <div class="input-with-currency">
+                        <span class="currency-symbol">$</span>
+                        <input
+                          type="number"
+                          id="min-price-input"
+                          min="0"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="price-input">
+                      <label for="max-price-input" data-lang-key="price-to"
+                        >До:</label
+                      >
+                      <div class="input-with-currency">
+                        <span class="currency-symbol">$</span>
+                        <input
+                          type="number"
+                          id="max-price-input"
+                          min="0"
+                          value="10000000"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h3 data-lang-key="length">Длина (м)</h3>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="length-1" checked />
+                    <label for="length-1" data-lang-key="length-1"
+                      >до 15 м</label
+                    >
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="length-2" checked />
+                    <label for="length-2" data-lang-key="length-2"
+                      >15-24 м</label
+                    >
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="length-3" checked />
+                    <label for="length-3" data-lang-key="length-3"
+                      >25-40 м</label
+                    >
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="length-4" checked />
+                    <label for="length-4" data-lang-key="length-4"
+                      >более 40 м</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h3 data-lang-key="manufacturer">Производитель</h3>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="brand-1" checked />
+                    <label for="brand-1">Sunseeker</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="brand-2" checked />
+                    <label for="brand-2">Ferretti</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="brand-3" checked />
+                    <label for="brand-3">Bering</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="brand-4" checked />
+                    <label for="brand-4">Azimut</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h3 data-lang-key="year">Год выпуска</h3>
+                <div class="year-range">
+                  <select id="year-from">
+                    <option value="2010">2010</option>
+                    <option value="2015">2015</option>
+                    <option value="2020">2020</option>
+                    <option value="2023">2023</option>
+                  </select>
+                  <span>—</span>
+                  <select id="year-to">
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025" selected>2025</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="apply-filters" data-lang-key="apply-filters">
+                Применить фильтры
+              </button>
+              <button class="reset-filters" data-lang-key="reset-filters">
+                Сбросить фильтры
+              </button>
+            </div>
+          </div>
+
+          <!-- Карточки яхт -->
+          <div class="yacht-list">
+            <!-- Яхта 1 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/12/main.jpg"
+                alt="SUNSEEKER MANHATTAN 55 (2015)"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">SUNSEEKER MANHATTAN 55 (2015)</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 17.2 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2015 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="950000">$950,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <!-- Яхта 2 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60 "DZAM"</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2020 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="1250000">$1,250,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <!-- Яхта 3 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/ferretti_780_turkey_exterior_edit_3.jpg"
+                alt="FERRETTI 780"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">FERRETTI 780</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 24.1 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2022 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="2300000">$2,300,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <!-- Яхта 4 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2019/01/sunseeker_manhattan_70_turkey_main.jpg"
+                alt="MANHATTAN 70 (008)"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">MANHATTAN 70 (008)</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 21.5 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2019 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="3100000">$3,100,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <!-- Яхта 5 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2023/11/sunseeker-comarque-50-1022.jpg"
+                alt="SUNSEEKER CAMARGUE 50"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">SUNSEEKER CAMARGUE 50</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 15.2 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2021 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="5500000">$5,500,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <!-- Яхта 6 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2023/12/sunseeker-manhattan-65-016-24.jpg"
+                alt="MANHATTAN 65 (016)"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">MANHATTAN 65 (016)</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 19.8 м</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2023 г.</span>
+                </div>
+                <p class="yacht-price" data-base-price="7800000">$7,800,000</p>
+                <a href="#" class="yacht-details" data-lang-key="view-details"
+                  >Подробнее</a
+                >
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Обновленный футер -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p data-lang-key="copyright">
+            © 2025 Морской Бриз - Элитный яхт-клуб
+          </p>
+          <p data-lang-key="developer">Разработал Рябцев Д.К. • Март 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/yacht-sale.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="about-us-title">О нас - Морской Бриз</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Шапка сайта с языковым переключателем -->
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="index.html" class="logo">Морской <span>Бриз</span></a>
+
+          <nav class="nav">
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" data-lang-key="main">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-sale.html" class="nav-link" data-lang-key="yacht-sale">Продажа яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-rent.html" class="nav-link" data-lang-key="yacht-rent">Аренда яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" data-lang-key="about">О нас</a>
+              </li>
+              <li class="nav-item">
+                <a href="contacts.html" class="nav-link" data-lang-key="contacts">Контакты</a>
+              </li>
+            </ul>
+
+            <div class="header-controls">
+              <div class="language-switcher">
+                <select id="language-select">
+                  <option value="ru">RU</option>
+                  <option value="en">EN</option>
+                </select>
+              </div>
+              
+              <div class="currency-switcher">
+                <select id="currency-select">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="RUB">RUB</option>
+                </select>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+      <div class="container">
+        <h1 class="page-title" data-lang-key="about-us-title">О нас</h1>
+        
+        <div class="about-container">
+          <div class="about-content">
+            <div class="about-text">
+              <h2 class="about-heading" data-lang-key="about-yacht-club">О яхт-клубе "Морской Бриз"</h2>
+              <p data-lang-key="about-yacht-club-text-1">Яхт-клуб "Морской Бриз" — это премиальный комплекс для любителей морских путешествий и роскошных яхт. Мы предлагаем широкий выбор услуг: от продажи и аренды яхт до организации морских туров и обучения управлению судами.</p>
+              <p data-lang-key="about-yacht-club-text-2">Наша команда состоит из опытных профессионалов, которые не просто работают в яхтенной индустрии, но и по-настоящему увлечены морем и всем, что с ним связано.</p>
+            </div>
+            
+            <div class="about-author">
+              <h2 class="about-heading" data-lang-key="about-author">Об авторе проекта</h2>
+              
+              <div class="author-card">
+                <div class="author-photo">
+                  <img src="./images/personal_photo.jpg" alt="Рябцев Даниил Константинович">
+                </div>
+                
+                <div class="author-info">
+                  <h3 class="author-name">Рябцев Даниил Константинович</h3>
+                  
+                  <div class="author-education">
+                    <h4><i class="fas fa-graduation-cap"></i> <span data-lang-key="education">Образование</span></h4>
+                    <p data-lang-key="education-text">Неоконченное высшее<br>
+                    "Поволжский государственный университет телекоммуникаций и информатики"<br>
+                    09.03.04 - Программная инженерия</p>
+                  </div>
+                  
+                  <div class="author-hobbies">
+                    <h4><i class="fas fa-heart"></i> <span data-lang-key="hobbies">Увлечения</span></h4>
+                    <ul>
+                      <li><i class="fas fa-ship"></i> <span data-lang-key="hobby-yachts">Яхты</span></li>
+                      <li><i class="fas fa-running"></i> <span data-lang-key="hobby-sports">Спорт</span></li>
+                      <li><i class="fas fa-music"></i> <span data-lang-key="hobby-music">Музыка</span></li>
+                      <li><i class="fas fa-laptop-code"></i> <span data-lang-key="hobby-programming">Программирование</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <h3><i class="fas fa-project-diagram"></i> <span data-lang-key="about-project">О проекте</span></h3>
+                <p data-lang-key="about-project-text-1">Данный сайт был разработан как учебный проект в рамках освоения современных технологий веб-разработки. При создании использовались HTML5, CSS3 и JavaScript.</p>
+                <p data-lang-key="about-project-text-2">Все материалы, использованные на сайте, предназначены исключительно для демонстрации и не подразумевают коммерческого использования.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Обновленный футер -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p data-lang-key="copyright">© 2025 Морской Бриз - Элитный яхт-клуб</p>
+          <p data-lang-key="developer">Разработал Рябцев Д.К. • Март 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html> 

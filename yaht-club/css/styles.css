@@ -1,0 +1,324 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+:root {
+    --primary-color: #0a4a7c;
+    --secondary-color: #1976d2;
+    --accent-color: #ff9800;
+    --text-color: #333;
+    --light-color: #fff;
+    --gray-color: #f5f5f5;
+    --dark-gray: #888;
+}
+
+body {
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка сайта */
+.header {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s, box-shadow 0.3s;
+}
+
+.header.compact {
+    padding: 8px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scrolled .header {
+    background-color: rgba(10, 74, 124, 0.95); /* Полупрозрачный цвет шапки */
+    backdrop-filter: blur(5px); /* Эффект размытия для современных браузеров */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+/* Навигация */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Переключатель валюты */
+.currency-switcher {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.currency-switcher select {
+    background: transparent;
+    border: none;
+    color: var(--light-color);
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.currency-switcher select option {
+    background-color: var(--primary-color);
+}
+
+/* Мобильное меню */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Переключатель языка */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.language-switcher select {
+    background: transparent;
+    border: none;
+    color: var(--light-color);
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.language-switcher select option {
+    background-color: var(--primary-color);
+}
+
+/* Основной контент */
+.main {
+    padding: 40px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+/* Карточки яхт */
+.yacht-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на больших экранах */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.yacht-card {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.yacht-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.yacht-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.yacht-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.yacht-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.yacht-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.yacht-details {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.yacht-details:hover {
+    background-color: #e68900;
+}
+
+/* Футер */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+/* Адаптивный дизайн */
+@media screen and (max-width: 992px) {
+    .yacht-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд на планшетах */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .nav {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .nav-list.active {
+        display: flex;
+    }
+    
+    .nav-item {
+        margin: 10px 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+    
+    .currency-switcher {
+        margin-top: 15px;
+    }
+    
+    .yacht-grid {
+        gap: 20px;
+    }
+    
+    .header-controls {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .yacht-grid {
+        grid-template-columns: 1fr; /* 1 карточка в ряд на мобильных */
+        gap: 15px;
+    }
+    
+    .section-heading {
+        font-size: 24px;
+    }
+} 

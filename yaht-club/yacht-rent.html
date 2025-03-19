@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="yacht-rent-title">Аренда яхт - Морской Бриз</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/yacht-rent.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+  <body>
+    <!-- Шапка сайта с языковым переключателем -->
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="index.html" class="logo">Морской <span>Бриз</span></a>
+
+          <nav class="nav">
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" data-lang-key="main">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-sale.html" class="nav-link" data-lang-key="yacht-sale">Продажа яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-rent.html" class="nav-link active" data-lang-key="yacht-rent">Аренда яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" data-lang-key="about">О нас</a>
+              </li>
+              <li class="nav-item">
+                <a href="contacts.html" class="nav-link" data-lang-key="contacts">Контакты</a>
+              </li>
+            </ul>
+
+            <div class="header-controls">
+              <div class="language-switcher">
+                <select id="language-select">
+                  <option value="ru">RU</option>
+                  <option value="en">EN</option>
+                </select>
+              </div>
+              
+              <div class="currency-switcher">
+                <select id="currency-select">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="RUB">RUB</option>
+                </select>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+      <div class="container">
+        <h1 class="page-title" data-lang-key="yacht-rent-title">Аренда яхт</h1>
+        
+        <!-- Поиск (проверим правильность структуры) -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="yacht-search" class="search-input" placeholder="Поиск яхт..." data-lang-key="search-placeholder" autocomplete="off">
+            <button id="clear-search" class="clear-search" title="Очистить" data-lang-key="clear-search-title">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="yacht-rent-container">
+          <!-- Фильтры -->
+          <div class="filter-container">
+            <button class="filter-toggle">
+              <i class="fas fa-filter"></i> <span data-lang-key="filters">Фильтры</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            
+            <div class="filters">
+              <div class="filter-group">
+                <h3 data-lang-key="rental-dates">Даты аренды</h3>
+                <div class="date-picker-container">
+                  <input type="text" id="date-range" data-lang-key="choose-dates" placeholder="Выберите даты" class="date-picker">
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h3 data-lang-key="duration">Продолжительность</h3>
+                <div class="duration-select">
+                  <div class="duration-item">
+                    <input type="radio" id="hours" name="duration" value="hours" checked>
+                    <label for="hours" data-lang-key="hours">Часы</label>
+                  </div>
+                  <div class="duration-item">
+                    <input type="radio" id="days" name="duration" value="days">
+                    <label for="days" data-lang-key="days">Дни</label>
+                  </div>
+                  <div class="duration-item">
+                    <input type="radio" id="weeks" name="duration" value="weeks">
+                    <label for="weeks" data-lang-key="weeks">Недели</label>
+                  </div>
+                </div>
+                <div class="hours-select">
+                  <label for="hours-count" data-lang-key="hours-count">Количество часов:</label>
+                  <select id="hours-count">
+                    <option value="2" data-lang-key="hour-2">2 часа</option>
+                    <option value="4" data-lang-key="hour-4">4 часа</option>
+                    <option value="6" data-lang-key="hour-6">6 часов</option>
+                    <option value="8" data-lang-key="hour-8" selected>8 часов</option>
+                    <option value="12" data-lang-key="hour-12">12 часов</option>
+                  </select>
+                </div>
+                <div class="days-select" style="display: none;">
+                  <label for="days-count" data-lang-key="days-count">Количество дней:</label>
+                  <select id="days-count">
+                    <option value="1" data-lang-key="day-1">1 день</option>
+                    <option value="2" data-lang-key="day-2">2 дня</option>
+                    <option value="3" data-lang-key="day-3" selected>3 дня</option>
+                    <option value="5" data-lang-key="day-5">5 дней</option>
+                    <option value="7" data-lang-key="day-7">7 дней</option>
+                  </select>
+                </div>
+                <div class="weeks-select" style="display: none;">
+                  <label for="weeks-count" data-lang-key="weeks-count">Количество недель:</label>
+                  <select id="weeks-count">
+                    <option value="1" data-lang-key="week-1" selected>1 неделя</option>
+                    <option value="2" data-lang-key="week-2">2 недели</option>
+                    <option value="3" data-lang-key="week-3">3 недели</option>
+                    <option value="4" data-lang-key="week-4">4 недели</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h3 data-lang-key="price-per-hour">Цена за час <span class="currency-label">USD</span></h3>
+                <div class="price-range">
+                  <input type="range" id="price-min" min="0" max="2000" step="100" value="0">
+                  <div class="price-inputs">
+                    <div class="price-input">
+                      <label for="min-price-input" data-lang-key="price-from">От:</label>
+                      <div class="input-with-currency">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="min-price-input" min="0" value="0">
+                      </div>
+                    </div>
+                    <div class="price-input">
+                      <label for="max-price-input" data-lang-key="price-to">До:</label>
+                      <div class="input-with-currency">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="max-price-input" min="0" value="2000">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h3 data-lang-key="capacity">Вместимость</h3>
+                <div class="capacity-select">
+                  <label for="capacity" data-lang-key="people-count">Количество человек:</label>
+                  <select id="capacity">
+                    <option value="all" data-lang-key="any">Любое</option>
+                    <option value="4" data-lang-key="up-to-4">до 4</option>
+                    <option value="8" data-lang-key="up-to-8">до 8</option>
+                    <option value="12" data-lang-key="up-to-12">до 12</option>
+                    <option value="20" data-lang-key="up-to-20">до 20</option>
+                    <option value="30" data-lang-key="more-than-20">более 20</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h3 data-lang-key="yacht-type">Тип яхты</h3>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="type-1" checked>
+                    <label for="type-1" data-lang-key="motor-yacht">Моторная яхта</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="type-2" checked>
+                    <label for="type-2" data-lang-key="sailing-yacht">Парусная яхта</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="type-3" checked>
+                    <label for="type-3" data-lang-key="catamaran">Катамаран</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="type-4" checked>
+                    <label for="type-4" data-lang-key="superyacht">Суперяхта</label>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="apply-filters" data-lang-key="apply-filters">Применить фильтры</button>
+              <button class="reset-filters" data-lang-key="reset-filters">Сбросить фильтры</button>
+            </div>
+          </div>
+          
+          <!-- Карточки яхт -->
+          <div class="yacht-list">
+            <!-- Яхта 1 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/12/main.jpg"
+                alt="SUNSEEKER MANHATTAN 55"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">SUNSEEKER MANHATTAN 55</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 17.2 м</span>
+                  <span><i class="fas fa-users"></i> 6 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> <span data-lang-key="motor-yacht">Моторная яхта</span></span>
+                </div>
+                <p class="yacht-price" data-base-price="350">$350 / <span data-lang-key="per-hour">час</span></p>
+                <a href="#" class="yacht-details" data-lang-key="book-now">Забронировать</a>
+              </div>
+            </div>
+
+            <!-- Яхта 2 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <!-- Яхта 3 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/ferretti_780_turkey_exterior_edit_3.jpg"
+                alt="FERRETTI 780"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">FERRETTI 780</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 24.1 м</span>
+                  <span><i class="fas fa-users"></i> 10 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="880">$880 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <!-- Яхта 4 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2019/01/sunseeker_manhattan_70_turkey_main.jpg"
+                alt="MANHATTAN 70 (008)"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">MANHATTAN 70</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 21.5 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="750">$750 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <!-- Яхта 5 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2023/11/sunseeker-comarque-50-1022.jpg"
+                alt="SUNSEEKER CAMARGUE 50"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">SUNSEEKER CAMARGUE 50</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 15.2 м</span>
+                  <span><i class="fas fa-users"></i> 4 человека</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Парусная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="320">$320 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <!-- Яхта 6 -->
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2023/12/sunseeker-manhattan-65-016-24.jpg"
+                alt="MANHATTAN 65 (016)"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">MANHATTAN 65</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 19.8 м</span>
+                  <span><i class="fas fa-users"></i> 10 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Суперяхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="1200">$1,200 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+
+            <div class="yacht-card">
+              <img
+                src="https://sunseeker-russia.com/uploads/2024/09/bering_60_dzam_1.jpg"
+                alt="BERING 60 'DZAM'"
+                class="yacht-img"
+              />
+              <div class="yacht-info">
+                <h3 class="yacht-name">BERING 60</h3>
+                <div class="yacht-specs">
+                  <span><i class="fas fa-ruler-horizontal"></i> 18.3 м</span>
+                  <span><i class="fas fa-users"></i> 8 человек</span>
+                </div>
+                <div class="yacht-additional-info">
+                  <span><i class="fas fa-tag"></i> Моторная яхта</span>
+                </div>
+                <p class="yacht-price" data-base-price="450">$450 / час</p>
+                <a href="#" class="yacht-details">Забронировать</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Обновленный футер -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p data-lang-key="copyright">© 2025 Морской Бриз - Элитный яхт-клуб</p>
+          <p data-lang-key="developer">Разработал Рябцев Д.К. • Март 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/yacht-rent.js"></script>
+  </body>
+</html> 

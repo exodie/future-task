@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="contacts-title">Контакты - Морской Бриз</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/contacts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Шапка сайта с языковым переключателем -->
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="index.html" class="logo">Морской <span>Бриз</span></a>
+
+          <nav class="nav">
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" data-lang-key="main">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-sale.html" class="nav-link" data-lang-key="yacht-sale">Продажа яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="yacht-rent.html" class="nav-link" data-lang-key="yacht-rent">Аренда яхт</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" data-lang-key="about">О нас</a>
+              </li>
+              <li class="nav-item">
+                <a href="contacts.html" class="nav-link active" data-lang-key="contacts">Контакты</a>
+              </li>
+            </ul>
+
+            <div class="header-controls">
+              <div class="language-switcher">
+                <select id="language-select">
+                  <option value="ru">RU</option>
+                  <option value="en">EN</option>
+                </select>
+              </div>
+              
+              <div class="currency-switcher">
+                <select id="currency-select">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="RUB">RUB</option>
+                </select>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+      <div class="container">
+        <h1 class="page-title" data-lang-key="contacts-title">Контакты</h1>
+        
+        <div class="contacts-container">
+          <div class="contact-card">
+            <div class="contact-info">
+              <h2 data-lang-key="contact-us">Связаться с нами</h2>
+              
+              <div class="contact-block">
+                <h3 data-lang-key="phones">Телефоны</h3>
+                <ul class="contact-list">
+                  <li>
+                    <i class="fas fa-phone"></i>
+                    <span class="contact-label" data-lang-key="russia">Россия:</span>
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-phone"></i>
+                    <span class="contact-label" data-lang-key="europe">Европа:</span>
+                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-phone"></i>
+                    <span class="contact-label" data-lang-key="england">Англия:</span>
+                    <a href="tel:+442012345678">+44 20 1234 5678</a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="contact-block">
+                <h3 data-lang-key="email">Электронная почта</h3>
+                <ul class="contact-list">
+                  <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@morskoy-briz.ru">info@morskoy-briz.ru</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact@seabreeze-yachts.com">contact@seabreeze-yachts.com</a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="contact-block">
+                <h3 data-lang-key="address">Адрес</h3>
+                <p class="address">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span data-lang-key="address-text">г. Сочи, ул. Морская, 123<br>Яхтенный порт "Морской Бриз"</span>
+                </p>
+              </div>
+              
+              <div class="contact-block">
+                <h3 data-lang-key="working-hours">Время работы</h3>
+                <p class="working-hours">
+                  <i class="fas fa-clock"></i>
+                  <span data-lang-key="working-hours-text">Ежедневно: 9:00 - 20:00</span>
+                </p>
+              </div>
+              
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+            
+            <div class="contact-form-container">
+              <h2 data-lang-key="write-to-us">Напишите нам</h2>
+              <form class="contact-form">
+                <div class="form-group">
+                  <label for="name" data-lang-key="your-name">Ваше имя</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email" data-lang-key="your-email">Электронная почта</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone" data-lang-key="your-phone">Телефон</label>
+                  <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                  <label for="subject" data-lang-key="subject">Тема</label>
+                  <select id="subject" name="subject">
+                    <option value="purchase" data-lang-key="subject-purchase">Покупка яхты</option>
+                    <option value="rent" data-lang-key="subject-rent">Аренда яхты</option>
+                    <option value="info" data-lang-key="subject-info">Информация</option>
+                    <option value="other" data-lang-key="subject-other">Другое</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message" data-lang-key="message">Сообщение</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" data-lang-key="send">Отправить</button>
+              </form>
+            </div>
+          </div>
+          
+          <div class="map-container">
+            <h2 data-lang-key="on-map">Мы на карте</h2>
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.927520022347!2d39.72904491495218!3d43.58148036680223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f5bfd5ef4c0001%3A0x37dcc4a0351c4382!2z0KHQvtGH0LjQvdGB0LrQuNC5INC80L7RgNGB0LrQvtC5INGE0LvQvtGC!5e0!3m2!1sru!2sru!4v1626957123456!5m2!1sru!2sru" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Обновленный футер -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p data-lang-key="copyright">© 2025 Морской Бриз - Элитный яхт-клуб</p>
+          <p data-lang-key="developer">Разработал Рябцев Д.К. • Март 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html> 
